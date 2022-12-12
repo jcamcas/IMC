@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>INDICE DE MASA CORPORAL</h2>
+    <script>
+    function saltarLinea(numsalto){
+    	let i = 0;
+    	while (i<=numsalto){
+    		document.write("<br>");
+    		i++;
+    	} 
+    }
+
+    function imprimir(frase){
+    	document.write(frase);
+    	saltarLinea(1);
+    }
+	
+	function imc(peso,altura){
+		var indice=(peso)/((altura/100)**2);
+		return indice;
+	}
+    var nombre = prompt("Escriba su nombre");
+    var peso = prompt(nombre +" digite su peso en Kg");
+    var altura = prompt(nombre + " digite su estatura en centimetros");
+
+    var imcCalculado=(imc(peso,altura)).toFixed(2);
+    imprimir(nombre + " Su IMC es: " + imcCalculado);
+
+    function condicionales(imcCalculado){
+    if (imcCalculado<18.5) {
+        return "Peso Insuficiente";
+    }
+    else if (imcCalculado>=18.5 && imcCalculado<25){
+        return "Peso Normal";
+    }
+    else if (imcCalculado>=25 && imcCalculado<30){
+        return "Sobrepeso";
+    }
+    else if (imcCalculado>=30 && imcCalculado<35){
+        return "Obesidad Clase I";
+    }
+    else if (imcCalculado>=35 && imcCalculado<40){
+        return "Obesidad Clase II";
+    }
+    else {
+        return "Obesidad Clase III";
+    }
+}
+    imprimir("Usted tiene : " + condicionales(imcCalculado));
+    document.write("FIN");
+
+</script>
+</body>
+</html>
